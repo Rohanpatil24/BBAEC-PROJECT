@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+<div class="container-md">
+<div class="row mt-5" id="cart">
+    <div class="col-md-9" >
+        {% for x in data %}
+        {% if forloop.counter == 1 %}
+        <h5 class=" text-white p-2">Customer Details</h5>
+        <p><b>Name:</b>&nbsp;&nbsp;&nbsp;{{x.uid.first_name}} {{x.uid.last_name}}</p>
+        <p><b>Mobile:</b>&nbsp;&nbsp;&nbsp;+91 9000000000</p>
+        <p><b>Email:</b>&nbsp;&nbsp;&nbsp;{{x.uid.email}}</p>
+        {% endif %}
+        {% endfor %}
+
+
+        <h5 class=" text-white p-2 mt-5">Select Date</h5>
+        <div class="container-md">
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="date" class="form-control" name="" id="">
+                <!-- <input type="submit" value="Submit" class="btn btn-success mt-3" > -->
+            </form>
+            
+        </div>
+        
+        <h5 class=" text-white p-2 mt-5">Total Cotation Details</h5>
+        
+        <div class="row ">
+            {% for x in data %}
+            {% if x.bid.id == 9 %}
+            <div class="container-md">
+                <p></p>
+            </div>
+            {% else %}
+            <div class="col-md-8 mt-3">
+                <img src="{{x.bid.bimage1.url}}" alt="" class="img-fluid" width="250" height="250">
+                <p><b>Banquet Name:</b>&nbsp;{{x.bid.name}}</p>
+                <p><b>Price:</b>&nbsp;Rs. {{x.bid.rent}} / Per-Day</p>
+                <a href="/bremove/{{x.id}}"><button class="btn btn-danger">Remove</button></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+            
+            <hr class="mt-4">
+
+            <div class="container-md mt-3">
+                <p class="text-danger">IMPORTANT NOTE : In Qty 1 = 50 Person</p>
+            </div>
+
+            {% for x in data %}
+            {% if x.mid.id == 9 %}
+            <div class="container-md">
+                <p></p>
+            </div>
+            {% else %}
+            <div class="col-md-8 mt-3">
+                <p><b>Menu Name:</b>&nbsp;{{x.mid.name}}</p>
+                <!-- <p><b>Dish Id:</b>&nbsp;{{x.mid.id}}</p> -->
+                <p><b>Price:</b>&nbsp;Rs. {{x.mid.package}} / Per 50 Person</p>
+                {% if x.mid.id == 1 %}
+                    {% for z in indveg %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 2 %}
+                    {% for z in indnonveg %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 3 %}
+                    {% for z in chinese %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 4 %}
+                    {% for z in continental %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 5 %}
+                    {% for z in MaharastrianAgriKoli %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 6 %}
+                    {% for z in Malvani %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 7 %}%
+                    {% for z in SouthIndian %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% elif x.mid.id == 8 %}
+                    {% for z in Rajastani %}
+                    <p class="text-center">{{z.name}}</p>
+                    {% endfor %}
+                {% endif %}
+                <p>
+                    <b>Qty:</b>
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Qty 1 = 50 Person">
+                        <a href="/updateqty/0/{{x.id}}"><button class="btn btn-danger">-</button></a>
+                    </span>
+                    
+                    <input type="number" value="{{x.qty}}">
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Qty 1 = 50 Person">
+                        <a href="/updateqty/1/{{x.id}}"><button class="btn btn-success">+</button></a>
+                    </span>
+                    
+                </p>
+                <a href="/mremove/{{x.id}}"><button class="btn btn-danger">Remove</button></a>
+            </div>  
+            {% endif %}
+            {% endfor %}    
+        </div>
+        
+    </div>
+    
+    <div class="col-md-3" id="cart">
+        <h5 class="text-white p-2">Total Amount</h5>
+        <p><b>Total:</b>&nbsp;Rs:{{total}}</p>
+        <hr>
+        <p><b>Total Amount:</b>&nbsp;Rs.{{total}}</p>
+        <a href="/placeorder"><button class="btn btn-success">Pay Full Payment</button></a>
+
+        <h5 class="text-white p-2 mt-5">Book Now Pay Later</h5>
+        <p><b>Total Booking Amount:</b>&nbsp;Rs.{{booktotal}}</p>
+        <a href="/bkplaceorder"><button class="btn btn-success">Just Book</button></a>
+    </div>
+
+    
+</div>
+</div>
+{% endblock 'main' %}

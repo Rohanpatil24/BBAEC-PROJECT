@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<div class="container-md lg-5">
+    <h3 class="text-center m-3">Our Banquets</h3>
+    <div class="row" id="OurB">
+
+        {% for x in Banquets %}
+
+        {% if x.id == 9 %}
+
+        <div class="container-md">
+            <p></p>
+        </div>
+        {% else %}
+
+        <div class="product-card col-3 m-3 p-0" style="width: 250px;" data-aos="fade-up">
+            <img src="{{x.bimage1.url}}"  alt="">
+            <div class="card-body mt-4">
+                <div class="card-info">
+                    <h5 class="text-center">{{x.name}}</h5>
+                    <h6 class="text-center">
+                        <img src="https://cdn4.iconfinder.com/data/icons/twitter-29/512/157_Twitter_Location_Map-256.png" alt="">{{x.location}}</h6>
+                </div>
+                <div class="card-button">
+                    <a href="banqpreview/{{x.id}}" class="shadow">Visit</a>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+
+
+    </div>
+</div>
+
+{% endblock 'main' %}

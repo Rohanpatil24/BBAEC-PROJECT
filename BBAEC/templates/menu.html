@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<div class="container-md text-center mt-4">
+    <h4>Check Out Our Menu Options</h4>
+    <p>(Check the Menu Categories and Choose Your Favourite Menus)</p>
+
+</div>
+<div class="container-md mt-5">
+
+    {% csrf_token %}
+    <div class="row" id="Menu">
+        <div class='col-6 mt-4' id="menucontainer">
+            <h5 class="text-center m-3">
+                <u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Indian Veg</u></label>
+
+                    </section>
+                </u>
+            </h5>
+            {% for z in indveg %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Indian Non-Veg</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in indnonveg %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-4' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Chinese</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in chinese %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Continental</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in continental %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Maharastrian Agri
+                                Koli</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in MaharastrianAgriKoli %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Malvani</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in Malvani %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>South-Indian</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in SouthIndian %}
+            <p class="text-center">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+        <div class='col-6 mt-2' id="menucontainer">
+            <h5 class="text-center m-3"><u>
+                    <section class="form-check form-switch w-100">
+                        <label class="form-check-label" for="flexSwitchCheckDefault"><u>Rajastani</u></label>
+
+                    </section>
+                </u></h5>
+            {% for z in Rajastani %}
+            <p class="text-center ">{{z.name}}</p>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- <div class="container-md ">
+        <h4 class="text-center mt-5 mb-4">Select the Menu</h4>
+        <p class="text-center mt-5 mb-4">Select the menu you want from below list</p>
+        <form action="/preview" method="post">
+            {% csrf_token %}
+            <ul class="list-group ">
+                {% for x in Menu %}
+                <li class="list-group-item" name="mid">
+                    <a href="/mmenucart/{{x.id}}" class="btn btn-success">Add</a>
+                    <label class="form-check-label mx-2" for="firstCheckbox">{{y.name}}</label>
+                    <h4 class="text-danger">{{success}}</h4>
+                </li>
+                {% endfor %}
+            </ul>
+        </form>
+
+    </div> -->
+    <!-- {% for x in users %}
+        {% for y in banq %} -->
+
+    <!-- {% endfor %}
+    {% endfor %} -->
+</div>
+    {% endblock %}

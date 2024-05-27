@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+<div class="container-md mt-5 mb-5">
+    
+    <!-- <p>Please Check Your Menu Details</p> -->
+    <h1>Confirm Your Selection</h1>
+    <div class="container-md m-3 shadow" id="cmm">
+        
+        {% for x in Menu  %}
+        <p>You have Selected {{x.name}} Menu</p>
+        <p>Rs : {{x.package}} Package <span class="text-danger">Qty 50 per</span></p>
+        <button onclick="history.back()" class="shadow">Done</button>
+        {% endfor %}
+        
+    </div>
+
+</div>
+
+
+{% endblock 'main' %}

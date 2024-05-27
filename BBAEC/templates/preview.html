@@ -1,0 +1,396 @@
+{% extends 'base.html' %}
+
+{% block 'main' %}
+{% load static %}
+
+
+<div class="container-md mt-1 p-2 mb-3 ">
+  {% for x in Banquet %}
+  
+  <div class="row shadow" id="Preview-main">
+    <h4>{{x.name}}</h4>
+    <div class="col-6">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active">
+            <img src="{{x.bimage1.url}}" class="d-block w-100 h-50" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://www.jaypeehotels.com/blog/wp-content/uploads/2020/11/banquet-halls-in-Greater-Noida-for-weddings-1024x682.jpg"
+              class="d-block w-100 h-50" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.oyorooms.com/blog/wp-content/uploads/2018/01/features.jpg" class="d-block w-100 h-50"
+              alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="banqet_details">
+        <h4>{{x.name}}</h4>
+        <p class="card-text">"{{x.name}}" - Uncover Tranquil Luxury
+
+          Nestled discreetly, Serenity Manor radiates elegance. With its refined ambiance and attentive service, it promises an intimate yet luxurious experience. Despite its modest fame, it boasts top-notch amenities, making every event a cherished memory. Discover Serenity Manor - where tranquility meets opulence.</p>
+        <div class="banquet_aminities">
+          <p><b>Banquet details</b></p>
+          <p class="card-text">{{x.location}}</p>
+          <p class="card-text danger">Rs : {{x.rent}} Per/Day</p>
+          <p class="card-text">{{x.Address}}</p>
+          {% for x in Manager %}
+          <p class="card-text">{{x.id.name}}</p>
+          {% endfor %}
+        </div>
+        <div class="banquet_aminities">
+          <p><b>Aminities</b></p>
+          <p class="card-text">State-of-the-art Audio visual equipment</p>
+          <p class="card-text">Live broadcast tele-video conferencing facilities</p>
+          <p class="card-text">WI-FI internet connectivityt</p>
+          <p class="card-text">Full Ac / Non-AC Available</p>
+          <p class="card-text">Varites of Menus</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container-md mt-5">
+    <h6>Check out the banquet images of diffrent events</h6>
+    <div class="row">
+      <div class="col">
+        <div class="banquet_event_container">
+          <div class="card text-bg-dark">
+            <img src="https://www.hamaraevent.com/lib/js/kcfinder/upload/images/image1%2841%29.jpg" class="card-img"
+              alt="..." height="200">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Wedding</h5>
+              <p class="card-text">Tradiational wedding theme with indian dishes </p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="banquet_event_container">
+          <div class="card text-bg-dark">
+            <img src="https://images.venuebookingz.com/20194-1582967463-wm-dragon-fly-banquet-hall-andheri-mumbai-3.jpg"
+              class="card-img" alt="..." height="200">
+            <div class="card-img-overlay">
+              <h5 class="card-title">Birthday Pary</h5>
+              <p class="card-text">Beautifull table dressing and matching chairs
+                ballons of diffrent colors </p>
+              <p class="card-text"><small>Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container-md mt-5 mb-3">
+  <h4>Custom Decorations</h4>
+  <div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
+          Additional Decorations
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+        <div class="accordion-body">
+          <div class="row" id="Adddec">
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/fog.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Fog Effect</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/sparkels.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Sparkels</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/balloons.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Balloons</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/candles.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Candles</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+          Flowers
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <div class="row" id="Adddec">
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/rose.jpg' %}" alt="" class="img-fluid h-50 w-100 w-100 pt-3">
+              <p class="text text-center">Rose</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/whitelilly.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">White Lilly</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/pinklilly.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Pink Lilly</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/Tulip.jpeg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Tulips</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/Peonies.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Peonies</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/sunflower.jpg' %}" alt="" class="img-fluid h-50 w-100 pt-3">
+              <p class="text text-center">Sunflower</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseThree">
+          Chairs and Table color
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <div class="row" id="Adddec">
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/white.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">White</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/red.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Red</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/orange.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Orange</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/gold.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Golden</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+          aria-controls="panelsStayOpen-collapseThree">
+          Custom Themes
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <div class="row" id="Adddec">
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/traditional.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Tradiational Indian Wedding</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/modern.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Morden Indian Weddings</p>
+            </div>
+            <div class="col-2">
+              <img src="{% static 'Assets/images/Main/goldsilver.jpg' %}" alt="" class="img-fluid h-50 w-100">
+              <p class="text text-center">Golden and Silver </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-md text-center mt-4">
+  <h4>Check Out Our Menu Options</h4>
+  <p>(Check the Menu Dishes and Choose Your Favourite Menus)</p>
+</div>
+<div class="container-md mt-5">
+
+  {% csrf_token %}
+  <div class="row" id="Menu">
+    <div class='col-6 mt-4 shadow' id="menucontainer">
+      <h5 class="text-center m-3">
+        <u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Indian Veg</u></label>
+
+          </section>
+        </u>
+      </h5>
+      {% for z in indveg %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Indian Non-Veg</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in indnonveg %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-4 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Chinese</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in chinese %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Continental</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in continental %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Maharastrian Agri
+                Koli</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in MaharastrianAgriKoli %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Malvani</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in Malvani %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>South-Indian</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in SouthIndian %}
+      <p class="text-center">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+    <div class='col-6 mt-2 shadow' id="menucontainer">
+      <h5 class="text-center m-3"><u>
+          <section class="form-check form-switch w-100">
+            <label class="form-check-label" for="flexSwitchCheckDefault"><u>Rajastani</u></label>
+
+          </section>
+        </u></h5>
+      {% for z in Rajastani %}
+      <p class="text-center ">{{z.name}}</p>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="conatiner-md multicard-section">
+    <h4 class="text-center mt-5 mb-4">Select the Menu</h4>
+    <p class="text-center mt-1 mb-4">Select the menu you want from below list</p>
+
+    <div class="row gap-3 p-3 multicard" ata-aos="flip-up">
+      {% for x in Menu %}
+      {% if x.id == 9 %}
+      <a></a>
+      {% else %}
+      <a class="col-3 shadow multicard-item" href="/mmenucart/{{x.id}}">
+        <h6>{{x.name}}</h6>
+        <!-- <br>
+          <h6>{{x.package}}</h6> -->
+      </a>
+      {% endif %}
+      </li>
+
+      {% endfor %}
+    </div>
+
+    <div class="container-md mt-5 ccmp" id="">
+      <a href="/bbanqcart/{{x.id}}" class="btn btn-success shadow" id="button">Select this Banquet !</a>
+      <a href="/cart" class="btn btn-success shadow" id="button">Go to Cart</a>
+    </div>
+    <div class="container mt-3">
+      <p class="text-secondary text-center ">Click on <span class="htext">Go to Cart</span> to see the overall Cotation</p>
+    </div>
+
+    <!-- <div class="container-md mt-5">
+  <h4>What's your Plan ??</h4>
+  <p>What are you planing, Select Venue accordingly</p>
+  <div class="row">
+    <div class="col-6">
+      <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+        <option selected>Select Your Venue</option>
+        <option value="1">Birthday Party</option>
+        <option value="2">Wedding</option>
+        <option value="3">Family Functions</option>
+        <option value="4">Office Functions or Party</option>
+        <option value="5">School Gathering</option>
+        <option value="6">Other</option>
+      </select>
+      
+    </div>
+  </div>-->
+  </div>
+</div>
+
+
+{% endfor %}
+{% endblock 'main' %}
